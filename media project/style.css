@@ -6,11 +6,17 @@
      font-family: "Lobster", sans-serif;
 ;
 }
+:root {
+    --bg-color: #2e2e17;
+}
 nav{
+    position: sticky;
+    top: 0px;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #2e2e17;
+    background-color: var(--bg-color);
+    /* background-color: #2e2e17; */
     color: white;
     padding: 1rem;
 }
@@ -21,4 +27,107 @@ nav{
     background-image: radial-gradient(circle, #09cc1c, #8dc239, #837d2a);
     border-radius: 50%;
     box-shadow: 0 0 60px rgba(228, 231, 6, 0.945);
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.5rem;
+}
+.links a{
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    transition: all;
+    transition: transform 0.3s ease-in-out;
+}
+.links a:hover{
+    color: gray;
+    transform: scaleX(1.3);
+    border-bottom: 4px solid gray;
+}
+.main {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  color: white;
+  overflow: hidden; /* hides blur edges */
+}
+
+/* Create blurred background layer */
+.main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://images.pexels.com/photos/46239/salmon-dish-food-meal-46239.jpeg?cs=srgb&dl=close-up-cooking-dinner-46239.jpg&fm=jpg');
+  background-size: cover;
+  background-position: center;
+  filter: blur(8px);
+  transform: scale(1.1); /* fixes edge cutoff from blur */
+  z-index: -1; /* keeps it behind text */
+}
+
+ .main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+} 
+
+.main h1 {
+    /* padding-top: 50px; */
+  /* margin-top: 5rem; */
+  font-size: 4rem;
+  margin: 0;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+}
+
+.main p {
+  font-size: 1.5rem;
+  letter-spacing: 1.5px;
+  padding: 1rem 5rem;
+}
+.main-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    /* padding: 2rem; */
+    gap: 20px;
+}
+.main-btn button{
+    padding: 1rem;
+    color: white;
+    font-weight: 500;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    background-color: var(--bg-color) ;
+    box-shadow: 0 0 60px rgba(202, 180, 180, 0.918);
+    transition: all 0.2s ease-in-out;
+}
+.main-btn button:hover {
+     background: radial-gradient(circle, rgb(31, 26, 26), rgb(29, 26, 26), black);
+
+}
+.middle {
+  position: relative;
+}
+.img-section{
+  position: absolute;
+  margin-top: 5px;
+  gap: 15px;
+  border-radius: 20px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.img-section img {
+  height: 530px;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
 }
